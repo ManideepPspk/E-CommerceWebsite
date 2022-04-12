@@ -6,6 +6,19 @@
         "currency": "INR",
         "canBuy": true,
         "description": "Mac pro",
+        "specification": "Apple laptop with 500GB Internal storage",
+        "reviewsarray": [
+            {
+              "author": "who1",
+              "stars": 5,
+              "body": "good laptop"
+            },
+            {
+              "author": "who1",
+              "stars": 5,
+              "body": "good laptop"
+            }
+          ],
         "image": "images/laptop.png"
     },
     {
@@ -15,6 +28,18 @@
         "currency": "INR",
         "canBuy": true,
         "description": "iphone-7",
+        "reviewsarray": [
+            {
+                "author": "who1",
+                "stars": 5,
+                "body": "good mobile"
+            },
+            {
+                "author": "who2",
+                "stars": 3,
+                "body": "bad one"
+            }
+        ],
         "image": "images/mobile.png"
     },
     {
@@ -24,6 +49,18 @@
         "currency": "INR",
         "canBuy": true,
         "description": "iphone-7",
-        "image": "images/mobile.png"
+        "reviewsarray":[
+            {
+                "author": "who1",
+                "stars": 5,
+                "body": "good Tv"
+            },
+            {
+                "author": "mani",
+                "stars": 2,
+                "body": "bad one"
+            }
+        ],
+        "image": "images/tv.jpg"
     }
 ]

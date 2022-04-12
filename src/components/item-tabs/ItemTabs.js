@@ -1,27 +1,20 @@
-
-
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import Review from '../review/Review';
 import ReviewForm from '../review-form/ReviewForm_v2';
-
-import axios from 'axios'
 
 const ItemTabs = ({ value: item }) => {
 
     const [tab, setTab] = useState(1)
     const [reviews, setReviews] = useState([])
 
+    console.log("trr",item)
+
     useEffect(() => {
-        if (tab === 3) {
-            axios.get('/data/reviews.json')
-                .then((response) => {
-                    let allReviews = response.data || []
-                    let reviews = allReviews[item.id] || []
-                    setReviews(reviews)
-                })
-        }
-    }, [tab])
+                    setReviews(item?.reviewsarray)
+                    console.log("trr",reviews,item?.reviewsarray)
+    }, [item])
 
 
     const addNewReview = review => {
@@ -40,7 +33,7 @@ const ItemTabs = ({ value: item }) => {
                 <div>{item.description}</div>
             )
             case 2: return (
-                <div>Not Yet</div>
+                <div>{(item?.specification)?(item?.specification):"Not Yet"}</div>
             )
             case 3: return (
                 <div>
