@@ -16,5 +16,14 @@
         "canBuy": true,
         "description": "iphone-7",
         "image": "images/mobile.png"
+    },
+    {
+        "id": 3,
+        "name": "TV",
+        "price": 77000,
+        "currency": "INR",
+        "canBuy": true,
+        "description": "iphone-7",
+        "image": "images/mobile.png"
     }
 ]

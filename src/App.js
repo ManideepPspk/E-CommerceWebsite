@@ -15,19 +15,7 @@ import CartView from './components/cart-view/CartView';
 
 function App() {
 
-  const [cart, setCart] = useState({
-    1: {
-      item: {
-        id: 1,
-        name: 'Laptop',
-        price: 149000,
-        currency: 'INR',
-        canBuy: true,
-        description: 'Mac pro',
-        image: 'images/laptop.png'
-      }, qty: 1
-    }
-  })
+  const [cart, setCart] = useState({})
 
   const addToCart = (item, qty = 1) => {
 
