@@ -7,6 +7,7 @@
         "canBuy": true,
         "description": "Mac pro",
         "specification": "Apple laptop with 500GB Internal storage",
+        "availableQty": 40,
         "reviewsarray": [
             {
               "author": "who1",
@@ -28,6 +29,7 @@
         "currency": "INR",
         "canBuy": true,
         "description": "iphone-7",
+        "availableQty": 3,
         "reviewsarray": [
             {
                 "author": "who1",
@@ -49,6 +51,7 @@
         "currency": "INR",
         "canBuy": true,
         "description": "iphone-7",
+        "availableQty": 0,
         "reviewsarray":[
             {
                 "author": "who1",

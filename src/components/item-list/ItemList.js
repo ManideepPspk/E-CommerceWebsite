@@ -23,7 +23,7 @@ const ItemList = ({ onBuy, cart }) => {
             return (
                 <div key={item.id}>
                     <div key={item.id} className="list-group-item">
-                        <Item value={item} cartItemQty={cartItemQty} onBuy={item => onBuy(item)} />
+                        <Item value={item} cartItemQty={cartItemQty} onBuy={(item, qty) => onBuy(item, qty)} />
                     </div>
                 </div>
             )

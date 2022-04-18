@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import classnames from 'classnames';
 import Review from '../review/Review';
 import ReviewForm from '../review-form/ReviewForm_v2';
 
+
 const ItemTabs = ({ value: item }) => {
 
-    const [tab, setTab] = useState(1)
     const [reviews, setReviews] = useState([])
 
     console.log("trr",item)
@@ -27,16 +26,51 @@ const ItemTabs = ({ value: item }) => {
         })
     }
 
-    const renderTabPanel = (tab, item) => {
-        switch (tab) {
-            case 1: return (
-                <div>{item.description}</div>
-            )
-            case 2: return (
-                <div>{(item?.specification)?(item?.specification):"Not Yet"}</div>
-            )
-            case 3: return (
-                <div>
+    item.reviews = reviews
+
+    return (
+        <>
+       <div class="accordion" id={"accordionExample"+item.id}>
+  <div class="card">
+    <div class="card-header" id={"headingOne"+item.id}>
+      <h2 class="mb-0">
+        <button class="btn btn-link text-decoration-none" type="button" data-toggle="collapse" data-target={"#collapseOne"+item.id} aria-expanded="false" aria-controls={"collapseOne"+item.id}>
+          Description
+        </button>
+      </h2>
+    </div>
+
+    <div id={"collapseOne"+item.id} class="collapse" aria-labelledby={"headingOne"+item.id} data-parent={"#accordionExample"+item.id}>
+      <div class="card-body">
+        {item?.description ? (item?.description):"Not Yet"}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id={"headingTwo"+item.id}>
+      <h2 class="mb-0">
+        <button class="btn btn-link text-decoration-none" type="button" data-toggle="collapse" data-target={"#collapseTwo"+item.id} aria-expanded="false" aria-controls={"collapseTwo"+item.id}>
+          Specification
+        </button>
+      </h2>
+    </div>
+    <div id={"collapseTwo"+item.id} class="collapse" aria-labelledby={"headingTwo"+item.id} data-parent={"#accordionExample"+item.id}>
+      <div class="card-body">
+          {(item?.specification)?(item?.specification):"Not Yet"}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id={"headingThree"+item.id}>
+      <h2 class="mb-0">
+        <button class="btn btn-link text-decoration-none" type="button" data-toggle="collapse" data-target={"#collapseThree"+item.id} aria-expanded="false" aria-controls={"collapseThree"+item.id}>
+          Reviews
+        </button>
+      </h2>
+    </div>
+    <div id={"collapseThree"+item.id} class="collapse" aria-labelledby={"headingThree"+item.id} data-parent={"#accordionExample"+item.id}>
+      <div class="card-body">
+      <div>
                     <div className="row">
                         <div className="col-12">
                             <br />
@@ -46,34 +80,11 @@ const ItemTabs = ({ value: item }) => {
                     </div>
 
                 </div>
-            )
-            default: return null
-        }
-    }
-
-
-    item.reviews = reviews
-
-    const changeTab = (e, tabIdx) => {
-        e.preventDefault()
-        setTab(tabIdx)
-    }
-
-    return (
-        <div>
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className={`nav-link ${tab === 1 ? 'active' : ''}`} onClick={e => changeTab(e, 1)} href="/">Description</a>
-                </li>
-                <li className="nav-item">
-                    <a className={classnames('nav-link', { active: tab === 2 })} onClick={e => changeTab(e, 2)} href="/">Specification</a>
-                </li>
-                <li className="nav-item">
-                    <a className={classnames('nav-link', { active: tab === 3 })} onClick={e => changeTab(e, 3)} href="/">Reviews</a>
-                </li>
-            </ul>
-            {renderTabPanel(tab, item)}
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </>
     );
 };
 

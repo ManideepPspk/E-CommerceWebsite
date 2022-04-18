@@ -34,20 +34,30 @@ function App() {
       setCart({ ...cart, [id]: itemLine })
     }
   }
+  let totalqty =0;
+  let totalsum =0;
 
+  let keys = Object.keys(cart)
+       keys.map(key => {
+            let cartLine = cart[key]
+            let { item,qty } = cartLine;
+            let {price} = item;
+            totalqty = totalqty+qty;
+            totalsum = totalsum+(qty*price);
+        });
   return (
-    <div className="container">
+    <div className="ml-4 mr-4">
 
       <Router>
-        <Navbar title="e-shop" />
+        <Navbar title="ManiKart" />
         <hr />
         <CartBadge value={Object.keys(cart).length} />
         <hr />
         <div>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/items" render={props => <ItemList {...props} cart={cart} onBuy={item => addToCart(item)} />} />
-            <Route path="/cart" render={props => <CartView {...props} value={cart} onBuy={(item, qty) => addToCart(item, qty)} />} />
+            <Route path="/items" render={props => <ItemList {...props} cart={cart} onBuy={(item, qty) => addToCart(item, qty)} />} />
+            <Route path="/cart" render={props => <CartView {...props} value={cart} totalqty={totalqty} totalsum={totalsum} onBuy={(item, qty) => addToCart(item, qty)} />} />
           </Switch>
         </div>
       </Router>
